@@ -1,42 +1,73 @@
-let buttonEnter = document.getElementById('enter');
-let userInput = document.getElementById('userInput');
-let ul = document.querySelector('ul');
+$ (function() {
+    let userInput = $('#userInput');
+    let buttonEnter = $('#enter');
+    let ul = $('ul');
+    let total = $('#total');
+    let goals = 0;
+    let localStorage = window.localStorage;
+    let todoMap = [];
 
-function inputLength() {
-    return userInput.value.length > 0;
-}
-
-buttonEnter.onclick = function() { 
-    if (inputLength()) {
-        createTodo();
+    //функция проверки поля ввода на пустоту
+    function inputIsNotEmpty() {
+        return !!userInput.val();
     }
-};
 
-function createTodo() {
-    let li = document.createElement("li");
-    li.appendChild(document.createTextNode(userInput.value));
-    ul.appendChild(li);
-    userInput.value = '';
+    //создание и удаление заметок
+    function createTodo() {
 
-    let deleteButton = document.createElement('button');
-    deleteButton.appendChild(document.createTextNode('X'));
-    li.appendChild(deleteButton);
-    deleteButton.addEventListener('click', deleteTodoItem);
+        let li = $("<li>");//создание новой заметки
+        goals++;
+        total.text(goals);
+        li.append(document.createTextNode(userInput.val()));
+        ul.append(li);
+        todoMap.push({//сохранение данных в переменные
+            tasksNumber: todoMap.length + 1,
+            tasks: userInput.val()
+        });
+        localStorage.setItem('todolist', JSON.stringify(todoMap));//сохранение данных в локальное хранилище браузера
+        userInput.val('');
 
-    li.onclick = function() {
-        li.classList.toggle('done');
-    };
+        let deleteButton = $('<button>');//удаление заметки
+        deleteButton.append(document.createTextNode('X'));
+        li.append(deleteButton);
+        deleteButton.click(deleteTodoItem);
 
-    function deleteTodoItem() {
-        li.classList.add('delete');
+        li.click(Completed);//проверка выполнения заметки
+        
+        //функция проверки выполнения заметки
+        function Completed(){
+            $('.js-overlay-campaign').slideDown();//всплывающее окно при выполнении заметки
+            $('.js-overlay-campaign').fadeIn();//всплывающее окно при выполнении заметки
+            $('.js-overlay-campaign').addClass('disabled');
+            li.toggleClass('done');
+        }
+
+        //удаление заметок
+        function deleteTodoItem() {
+            li.fadeOut().remove();
+            goals--;
+            total.text(goals);
+        } 
     }
-}
-
-function changeListAfterKeypress(event) {
-    if (inputLength() && event.which === 13) {
-        createTodo();
+    //добавление заметки по нажатию на клавишу 'Enter'
+    function changeListAfterKeyPress(event) {
+        if (inputIsNotEmpty() && event.which == 13) {
+            createTodo();
+        }
     }
-}
+    //добавление заметки по нажатию на кнопку
+    function changeListAfterButtonPress(event) {
+        if (inputIsNotEmpty()) {
+            createTodo();
+        }
+    }
+    //функция закрытия всплывающего окна
+    $('.js-close-campaign').click(function() { 
+        $('.js-overlay-campaign').slideUp(500);
+         
+    });
 
-
-userInput.addEventListener('keypress', changeListAfterKeypress);
+    userInput.keypress(changeListAfterKeyPress);
+    buttonEnter.click(changeListAfterButtonPress);
+    total.text(goals); //количество всех заметок
+})
