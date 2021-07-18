@@ -1,0 +1,101 @@
+body {
+    background-image: url(https://img4.goodfon.ru/original/2560x1600/b/46/abstract-vector-violet-mesh-background.jpg);
+    height: 100%;
+    
+}
+
+label{
+    font-size: 30px;
+    margin: 25px;
+    font-family: cursive;
+    color: #b3dadd;
+    padding: 40px 50px 20px 67px;
+}
+
+#container {
+    width: 100%;
+    
+    margin: auto;
+    height: 100%;
+    
+}
+
+#connect-btn{
+    background-color: #b3dadd;
+    border-color: #b3dadd;
+    margin-left: 25px;
+}
+
+.form-control{
+    margin: 25px;
+    width: 50%;
+}
+
+.usernameWindow{
+    text-align: left;
+    margin: 185px;
+}
+
+.chat-header{
+    color: #b3dadd;
+    font-family: cursive;
+    text-align: center;
+    margin: 25px;
+    font-size: 30px;
+}
+
+.form-control{
+    margin-top: 10px;
+}
+
+.row {
+    height: 100%;
+    width: 100%;
+    background-color: #f0f9ff;
+    margin: auto;
+    width: 50%;
+    border-color: #b3dadd;
+    border: 2px dashed;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.chat-message {
+    min-height: 22px;
+    padding-left: 16px;
+    margin: 6px;
+}
+
+.chat-user{
+    text-align: left;
+    float: right;
+    background-color: #b3dadd;
+    border-color: #b3dadd;
+    border: 2px dotted;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.chat-messages-empty{
+    padding: 20px;
+    color: #00000038;
+    font-size: 20px;
+}
+.chat-messages-time{
+    font-size: 12px;
+    color: rgba(102, 102, 102, 0.808);
+    float: left;
+}
+
+.chat-messages-author{
+    font: bold;
+    font-size: 12px;
+    color: rgb(107, 106, 106);
+    float: left;
+}
+
+.chat-messages-content{
+    font: bold;
+    font-size: 18px;
+    float: left;
+}
