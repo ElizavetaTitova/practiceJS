@@ -7,6 +7,7 @@ $ (function() {
     let localStorage = window.localStorage;
     let todoMap = [];
 
+
     //функция проверки поля ввода на пустоту
     function inputIsNotEmpty() {
         return !!userInput.val();
@@ -31,14 +32,22 @@ $ (function() {
         deleteButton.append(document.createTextNode('X'));
         li.append(deleteButton);
         deleteButton.click(deleteTodoItem);
-
+        
         li.click(Completed);//проверка выполнения заметки
+        
         
         //функция проверки выполнения заметки
         function Completed(){
             $('.js-overlay-campaign').slideDown();//всплывающее окно при выполнении заметки
             $('.js-overlay-campaign').fadeIn();//всплывающее окно при выполнении заметки
             $('.js-overlay-campaign').addClass('disabled');
+            $(document).mouseup(function (e) { 
+                var popup = $('.js-popup-campaign');
+                if (e.target!=popup[0]&&popup.has(e.target).length === 0){
+                    $('.js-overlay-campaign').fadeOut();
+                    
+                }
+            });
             li.toggleClass('done');
         }
 
@@ -66,6 +75,7 @@ $ (function() {
         $('.js-overlay-campaign').slideUp(500);
          
     });
+
 
     userInput.keypress(changeListAfterKeyPress);
     buttonEnter.click(changeListAfterButtonPress);

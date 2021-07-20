@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
   
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
   
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -33,7 +33,7 @@
         <div class="helpText col-12">
           <p id="first">Enter text into the input field to add items to your list.</p>
           <p id="second">Click the item to mark it as complete.</p>
-          <p id="third">Click "DELETE" to remove the item from your list.</p>
+          <p id="third">Click "X" to remove the item from your list.</p>
         </div>
       </div>
 
@@ -53,14 +53,30 @@
       </div>
 
     </div>
+
+    <button id="start">Start</button>
+    <p id="timer"></p>
+    <button id="stop">Stop</button>
+    <script type="text/javascript">
+    var timer = 0;
+    document.getElementById('start').onclick = function(){timer = new Date().getTime()}
+    document.getElementById('stop').onclick = function(){timer = 0}
+
+    var interval = setInterval(function(){
+        if (timer==0) return;
+        document.getElementById('timer').innerHTML = (new Date().getTime()-timer)/1000 
+    },100);
+    </script>
+
     <div>
       TOTAL GOALS: 
       <span id="total"></span>
     </div>
+    
     <div class="overlay js-overlay-campaign">
       <div class="popup js-popup-campaign">
         <h2>CONGRATULATIONS!</h2>
-        You are well done! You have completed one of your the tasks, you are good at it. We believe in you!
+        Hooray, you have coped with the task!
         <div class="close-popup js-close-campaign"></div>
       </div>
     </div>

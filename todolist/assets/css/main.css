@@ -1,7 +1,7 @@
 body {
-  background: #19e496;
+  background-image: url(https://d2halst20r4hcy.cloudfront.net/wallpapers2/001/700/354/048/original/nebulaeouterspaceplanetsstars.jpg);
   text-align: center;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Cinzel', sans-serif; }
 
 .intro {
   margin: 30px 0px;
@@ -9,34 +9,38 @@ body {
 
 div {
   color: #ececec;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
+  font-family: 'Cinzel', sans-serif;
+  font-size: 20px;
   margin-bottom: 20px; }
 
 h1 {
   color: #ffffff;
   text-transform: uppercase;
-  font-weight: 800; }
+  font-weight: 900;}
 
 p {
   font-weight: 600; }
 
+#timer {
+  color:#ffffff;
+}
+
 #first {
   margin-top: 10px;
-  color: #A10932; }
+  color: #eb0d0d; }
 
 #second {
-  color: #A10932; }
+  color: #eb0d0d; }
 
 #third {
-  color: #A10932;
+  color: #eb0d0d;
   margin-bottom: 30px; }
 
 #enter {
   border: none;
-  padding: 5px 15px;
+  padding: 6px 15px;
   border-radius: 5px;
-  color: #F71B56;
+  color: #eb0d0d;
   background-color: #7BF2C5;
   transition: all 0.75s ease;
   -webkit-transition: all 0.75s ease;
@@ -47,7 +51,7 @@ p {
 
 #enter:hover {
   background-color: #50F2B5;
-  color: #FB5380; }
+  color: #eb0d0d; }
 
 ul {
   text-align: left;
@@ -59,10 +63,10 @@ li {
   color: #ffffff;
   text-transform: uppercase;
   font-weight: 600;
-  border: 2px solid #FFCB82;
+  border: 2px solid #eb0d0d;
   border-radius: 5px;
   margin-bottom: 10px;
-  background: #FB80A1;
+  background: #23cfc1;
   transition: all 0.75s ease;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -78,7 +82,7 @@ li > button {
   background: none;
   border: none;
   float: right;
-  color: #7BF2C5;
+  color: #ffffff;
   font-weight: 800; }
 
 input {
@@ -89,7 +93,7 @@ input {
 
 .done {
   background: #FB5380 !important;
-  color: #7BF2C5; }
+  color: #ffffff; }
 
 .delete {
   display: none; }
@@ -112,8 +116,8 @@ input {
   transform: translate(-50%, -50%);
   padding: 40px;
   box-sizing: border-box;
-  background-color: #FFB855;
-  color: #FB5380; }
+  background-color: #7BF2C5;
+  color: #eb0d0d; }
 
 .close-popup {
   position: absolute;
